@@ -1,0 +1,11 @@
+{
+  "type": "postgres",
+  "url": "postgresql://josecedamano:ex5o0CvbO44gJh1g7ZeiOQ@zippy-calf-5914.g8z.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "synchronize": true,
+  "logging": true,
+  "migrations": ["dist/**/migrations/*{.ts,.js}"],
+  "cli": {
+    "migrationsDir": "src/migrations"
+  }
+}

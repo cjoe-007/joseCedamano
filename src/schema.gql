@@ -1,0 +1,22 @@
+type Ticket {
+  id: Int
+  title: String
+  description: String
+}
+
+input CreateTicketInput {
+  title: String!
+  description: String!
+}
+
+type Mutation {
+  createTicket(input: CreateTicketInput!): Ticket
+}
+
+type Query {
+  findTickets(filter: TicketFilterInput, page: Int, limit: Int): [Ticket]
+}
+
+input TicketFilterInput {
+  title: String
+}
