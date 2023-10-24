@@ -1,3 +1,6 @@
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -87,6 +90,8 @@ Curl
 curl --location 'http://localhost:3000/upload/csv' \
 --form 'file=@"/C:/Users/Jose/Downloads/Capture.csv"'  
 ```
+## Posibles errores
+Si se presenta errores, volever a ejecutar el paso de instalación, borrar la base de datos.
 
 ## Autor - Herramienta
 
