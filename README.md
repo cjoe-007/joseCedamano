@@ -7,67 +7,92 @@
 
   <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
     <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Realizado con
 
-## Installation
+Creado con [Nest]
+
+## Instalación
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+## Ejecutar app
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+$ npm start
 ```
 
-## Test
 
+## Descripción
+
+Ejercicio 1: Diseñar un servicio simulado tipo GET (beeceptor.com) Crear un servicio simulado tipo GET que responda un mensaje diferente de acuerdo a los datos de entrada. Garantizar que el servicio se ejecute correctamente y devuelva una respuesta válida.
+
+Curl
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+curl --location --request GET 'https://josecedamano.free.beeceptor.com/' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Jose"
+}'
 ```
 
-## Support
+Ejercicio 2: Diseñar un servicio para la creación de tickets Implementar un servicio tipo POST que permita la creación de tickets. Diseñar una mutación de GraphQL (GQL) que se integre con el servicio para crear tickets. Realizar el mapeado de la entidad a un DTO (Data Transfer Object) para garantizar la correcta transferencia de datos. Implementar un control de excepciones personalizadas para el control de datos de entrada incorrectos, lógica de negocio, errores en la base de datos y problemas con el proveedor externo (api-fake).
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Curl
+```bash
+curl --location 'http://localhost:3000/tickets' \
+--header 'Content-Type: application/json' \
+--data '{
+  "title": "ticket3",
+  "description": "Descripcion del ticket 3"
+}'
+```
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Ejercicio 3: Diseñar un servicio para la consulta de un ticket dado un ID Desarrollar un servicio tipo GET que permita consultar un ticket específico utilizando un identificador (ID). Diseñar una query de GraphQL (GQL) que se integre con el servicio para consultar tickets por ID. Implementar un control de excepciones personalizadas para el control de datos de entrada incorrectos y registro no encontrado.
 
-## License
+Curl
+```bash
+curl --location 'http://localhost:3000/tickets/910477571767926785'
+```
 
-Nest is [MIT licensed](LICENSE).
+Ejercicio 4: Diseñar un servicio para consultar tickets según los filtros y paginación aplicados. Crear un servicio tipo GET que habilite la consulta de múltiples tickets utilizando filtros de búsqueda y paginación. Diseñar una query de GraphQL (GQL) que se conecte con el servicio para consultar varios tickets según los filtros y la paginación especificados. Establecer un control de excepciones personalizadas para el control de datos de entrada incorrectos.
+
+Curl
+```bash
+curl --location 'http://localhost:3000/tickets?title=ticket3&page=1&limit=10'
+```
+
+Ejercicio 5: Diseñar un servicio que permita cargar y procesar un archivo de 5 MB
+
+Crear un servicio tipo POST que realice la carga de un archivo CSV con 500K de registros que contengan la siguiente estructura
+
+id, balance, account, description, status, date
+
+· Validar que el archivo no contenga filas duplicadas
+· Validar que el archivo no esté vacío
+· Validar el formato del archivo
+· Validar que el id sea de tipo integer
+· Validar que el balance sea de tipo number
+· Validar que el account sea string y que tenga los valores válidos [INTERNAL, PEOPLE, OPERATIONS]
+· Validar que el description sea string de 500 caracteres
+· Validar que el status sea un string y que contenga los valores [PENDING, PROCESSED]
+· Validar que la fecha sea tenga un formato de fecha UTC y que sea del día actual
+
+Curl
+```bash
+curl --location 'http://localhost:3000/upload/csv' \
+--form 'file=@"/C:/Users/Jose/Downloads/Capture.csv"'  
+```
+
+## Autor - Herramienta
+
+- Autor - [José Cedamano]
+- NestJS - [https://nestjs.com](https://nestjs.com/)
+
+## Licencia
+
+Free.
